@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhammad Huzaifa – Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#010197; --blue-2:#1a1ad6; --paper:#f6f7ff; --card:#fff; --ink:#0b0b3b; --muted:#4b4b8a;
+  --dough:#e7b878; --choc:#4a2a17; --butter:#ffe27a;
+  --display:"Bagel Fat One","Arial Rounded MT Bold","Trebuchet MS",sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#05054a;--card:#0c0c78;--ink:#f1f1ff;--muted:#b9b9ee}}
+:root[data-theme="dark"]{--paper:#05054a;--card:#0c0c78;--ink:#f1f1ff;--muted:#b9b9ee}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.05rem/1.6 var(--body);overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
+
+/* lid: the one orchestrated moment */
+.lid{position:fixed;inset:0;z-index:50;background:#fff;display:grid;place-items:center;text-align:center;
+  background-image:repeating-linear-gradient(90deg,var(--blue) 0 14px,#fff 14px 28px);
+  animation:lift 1s cubic-bezier(.7,0,.2,1) 1.1s forwards;transform-origin:0 100%}
+.lid span{background:#fff;color:var(--blue);font:2.4rem/1.1 var(--display);padding:1.2rem 2rem;border:4px solid var(--blue);border-radius:2rem;transform:rotate(-3deg);animation:pop .6s ease-out both}
+@keyframes pop{from{transform:scale(.3) rotate(-20deg);opacity:0}}
+@keyframes lift{to{transform:translateY(-110%) rotate(-8deg);visibility:hidden}}
+
+/* hero */
+.hero{background:var(--blue);color:#fff;position:relative;overflow:hidden;padding:4rem 1.25rem 7rem}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:60px;background:var(--paper);
+  -webkit-mask:radial-gradient(circle at 30px 0,#0000 28px,#000 29px) 0 0/60px 100%;mask:radial-gradient(circle at 30px 0,#0000 28px,#000 29px) 0 0/60px 100%}
+.wrap{max-width:1040px;margin:0 auto}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:center}
+.tag{display:inline-block;background:var(--butter);color:var(--blue);font-weight:700;padding:.35rem .9rem;border-radius:99px;transform:rotate(-2deg);margin:0 0 1rem}
+h1{font:clamp(2.8rem,8vw,5.6rem)/.98 var(--display);margin:0 0 1rem;letter-spacing:.01em}
+.lead{max-width:34rem;color:#dcdcff;margin:0 0 1.5rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:.8rem 1.4rem;border-radius:99px;border:3px solid #fff;transition:transform .2s}
+.btn.solid{background:#fff;color:var(--blue)}
+.btn:hover{transform:translateY(-3px) rotate(-1.5deg)}
+.cookie-wrap{position:relative;display:grid;place-items:center}
+.cookie{width:min(300px,70vw);background:none;border:0;padding:0;cursor:pointer;animation:wobble 4s ease-in-out infinite;filter:drop-shadow(0 18px 0 rgba(0,0,0,.25))}
+.cookie:active{transform:scale(.94)}
+@keyframes wobble{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(5deg) translateY(-10px)}}
+.hint{position:absolute;bottom:-2rem;font-size:.9rem;color:#cfcfff}
+.crumb{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--dough);pointer-events:none;z-index:60}
+.crumb.c{background:var(--choc)}
+
+/* sections */
+section{padding:4rem 1.25rem}
+h2{font:clamp(2rem,5vw,3rem)/1.1 var(--display);color:var(--blue);margin:0 0 .4rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:var(--butter)}}
+.sub{color:var(--muted);margin:0 0 2rem}
+
+.jobs{display:grid;gap:1.25rem}
+.job{background:var(--card);border:3px solid var(--blue);border-radius:1.5rem;padding:1.5rem;box-shadow:8px 8px 0 var(--blue);transition:transform .25s,box-shadow .25s}
+.job:hover{transform:translate(-4px,-4px) rotate(-.4deg);box-shadow:12px 12px 0 var(--blue)}
+.job:nth-child(even):hover{transform:translate(-4px,-4px) rotate(.4deg)}
+.job header{display:flex;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;align-items:baseline;margin-bottom:.5rem}
+.job h3{font:1.5rem/1.15 var(--display);margin:0}
+.when{background:var(--blue);color:#fff;font-weight:700;font-size:.85rem;padding:.25rem .8rem;border-radius:99px;white-space:nowrap}
+.role{font-weight:700;color:var(--blue-2);margin:0 0 .5rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .role{color:var(--butter)}}
+.job ul{margin:.5rem 0 0;padding-left:1.1rem}
+.job li{margin:.4rem 0}
+.job li::marker{color:var(--dough)}
+
+/* skills strip */
+.strip{background:var(--blue);color:#fff;overflow:hidden;padding:1.1rem 0;transform:rotate(-1.2deg);margin:1rem -2rem}
+.track{display:flex;gap:1rem;width:max-content;animation:slide 28s linear infinite}
+.strip:hover .track{animation-play-state:paused}
+.track span{font:1.4rem var(--display);white-space:nowrap;display:flex;align-items:center;gap:1rem}
+.track span::after{content:"";width:16px;height:16px;border-radius:50%;background:var(--dough);box-shadow:inset -3px -3px 0 var(--choc)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.edu{background:var(--butter);color:var(--blue);border-radius:1.5rem;padding:1.5rem;border:3px solid var(--blue)}
+.edu h3{font:1.3rem/1.2 var(--display);margin:0 0 .3rem}
+.edu p{margin:0}
+
+/* contact */
+.contact{background:var(--blue);color:#fff;text-align:center;border-radius:2.5rem 2.5rem 0 0}
+.contact h2{color:#fff}
+.links{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+footer{background:var(--blue);color:#b9b9ff;text-align:center;padding:1rem 1.25rem 2rem;font-size:.9rem}
+
+@media (max-width:760px){
+  .hero .wrap,.two{grid-template-columns:1fr}
+  .cookie-wrap{order:-1;margin-bottom:1.5rem}
+  .strip{margin:1rem -3rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .lid{display:none}.cookie,.track{animation:none}.job,.btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="lid" aria-hidden="true"><span>Freshly baked CV</span></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="tag">Full Stack Developer</p>
+      <h1>Muhammad Huzaifa</h1>
+      <p class="lead">I build fast, scalable web apps and wire them to AI: chatbots, text-to-speech and voice cloning, with Next.js and React on the front and Python and Node behind them.</p>
+      <div class="btns">
+        <a class="btn solid" href="mailto:31huzafasameer@gmail.com">Email me</a>
+        <a class="btn" href="https://github.com/Huzaifa-31">See my GitHub</a>
+      </div>
+    </div>
+    <div class="cookie-wrap">
+      <button class="cookie" id="cookie" aria-label="Crumble the cookie">
+        <svg viewBox="0 0 200 200" role="img" aria-label="A chocolate chip cookie">
+          <circle cx="100" cy="100" r="92" fill="#c98f4f"/>
+          <circle cx="100" cy="100" r="86" fill="#e7b878"/>
+          <g fill="#4a2a17">
+            <ellipse cx="62" cy="64" rx="13" ry="9" transform="rotate(-25 62 64)"/>
+            <ellipse cx="130" cy="58" rx="12" ry="9" transform="rotate(20 130 58)"/>
+            <ellipse cx="100" cy="104" rx="14" ry="10" transform="rotate(-10 100 104)"/>
+            <ellipse cx="52" cy="124" rx="11" ry="8" transform="rotate(30 52 124)"/>
+            <ellipse cx="146" cy="116" rx="13" ry="9" transform="rotate(-30 146 116)"/>
+            <ellipse cx="108" cy="152" rx="12" ry="8" transform="rotate(15 108 152)"/>
+            <ellipse cx="80" cy="34" rx="7" ry="5"/>
+            <ellipse cx="164" cy="82" rx="6" ry="5"/>
+          </g>
+          <path d="M70 92q8 8 16 0M118 92q8 8 16 0" stroke="#4a2a17" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M90 118q14 14 28 0" stroke="#4a2a17" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <span class="hint">Tap the cookie</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>What I've baked</h2>
+    <p class="sub">Work experience, newest first.</p>
+    <div class="jobs">
+      <article class="job">
+        <header><h3>Verticalsols</h3><span class="when">Sep 2023 – Mar 2026</span></header>
+        <p class="role">Full Stack Developer</p>
+        <ul>
+          <li>Built the corporate website in Next.js with a focus on SEO, fast loads and a layout that holds up on every device.</li>
+          <li>Designed a React admin dashboard with dynamic routing and state management for complex data.</li>
+          <li>Key contributor to a client-facing dashboard that streamlined data management and improved user engagement.</li>
+          <li>Lead developer on an AI text-to-speech platform with voice cloning, connecting the web interface to Python-based AI backends.</li>
+          <li>Developed and integrated chatbots that automate data-driven responses inside the platform.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <header><h3>Devex IT</h3><span class="when">Feb 2023 – Sep 2023</span></header>
+        <p class="role">Front End Developer</p>
+        <ul><li>Led development of the official Devex website in Next.js, delivering a responsive, high-performance platform.</li></ul>
+      </article>
+      <article class="job">
+        <header><h3>ClickUp</h3><span class="when">2021 – 2022</span></header>
+        <p class="role">Front End Developer</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-label="Skills">
+  <div class="track">
+    <span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>Python</span><span>UI/UX Design</span><span>WordPress</span><span>Web Design</span>
+    <span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>Python</span><span>UI/UX Design</span><span>WordPress</span><span>Web Design</span>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Where I learned the recipe</h2>
+    <p class="sub">Education.</p>
+    <div class="two">
+      <div class="edu"><h3>BS Computer Science</h3><p>University of Management and Technology, 2017 – 2021</p></div>
+      <div class="edu"><h3>ICS, Physics</h3><p>Punjab Group of Colleges, 2014 – 2016</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <h2>Want a batch of my work?</h2>
+    <p>Lahore, Pakistan. Open to full stack and front end roles.</p>
+    <div class="links">
+      <a class="btn solid" href="mailto:31huzafasameer@gmail.com">31huzafasameer@gmail.com</a>
+      <a class="btn" href="tel:+923374890727">+92 337 4890 727</a>
+      <a class="btn" href="https://github.com/Huzaifa-31">github.com/Huzaifa-31</a>
+    </div>
+  </div>
+</section>
+<footer>Baked with HTML, CSS and a little JavaScript.</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('cookie');
+  btn.addEventListener('click',function(e){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    var r=btn.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+    for(var i=0;i<18;i++){
+      var c=document.createElement('span');
+      c.className='crumb'+(i%3===0?' c':'');
+      var s=5+Math.random()*9;
+      c.style.cssText='width:'+s+'px;height:'+s+'px;left:'+cx+'px;top:'+cy+'px';
+      document.body.appendChild(c);
+      var a=Math.random()*Math.PI*2,d=70+Math.random()*130;
+      c.animate([
+        {transform:'translate(0,0)',opacity:1},
+        {transform:'translate('+Math.cos(a)*d+'px,'+(Math.sin(a)*d-40)+'px)',opacity:1,offset:.5},
+        {transform:'translate('+Math.cos(a)*d*1.1+'px,'+(Math.sin(a)*d+160)+'px)',opacity:0}
+      ],{duration:900+Math.random()*500,easing:'ease-out'}).onfinish=(function(el){return function(){el.remove()}})(c);
+    }
+    btn.animate([{transform:'scale(1)'},{transform:'scale(.8) rotate(8deg)'},{transform:'scale(1)'}],{duration:300});
+  });
+})();
+</script>
+</body>
+</html>
